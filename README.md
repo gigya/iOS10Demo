@@ -12,6 +12,7 @@ iOS 10 SDK project integrating Gigya’s plugin, web-bridge and social features
 -> RaaS Login via Web-View/Web-bridge<br/>
 -> RaaS Login via Native<br/>
 -> RaaS Login via OIDC (WIP)<br/>
+-> Gigya Login with Touch ID integration
 <br/>
 -> RaaS Screenset and update profile<br/>
 -> Comments via Plugin View<br/>
