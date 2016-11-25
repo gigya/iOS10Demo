@@ -33,7 +33,7 @@
     
     [NSHTTPCookieStorage sharedHTTPCookieStorage].cookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
     
-    NSString *url=@"http://gheerish.gigya-cs.com/raasDemo/a.html";
+    NSString *url=@"http://gheerish.gigya-cs.com/raasDemo/aa.html";
     
     NSURL *nsurl=[NSURL URLWithString:url];
     
@@ -45,10 +45,10 @@
 // GIGYA Web View/Web bridge Delegate functionality
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    NSLog(@"WebView load URL: %@ \n\n\n",[request URL]);
+   // NSLog(@"WebView load URL: %@ \n\n\n",[request URL]);
     
     if ([GSWebBridge handleRequest:request webView:webView]) {
-        // NSLog(@"GSWebBridge URL Request: %@ \n\n\n",[request URL]);
+     //    NSLog(@"GSWebBridge URL Request: %@ \n\n\n",[request URL]);
         return NO;
     }
     
@@ -61,13 +61,14 @@
 
 - (void)webView:(id)webView receivedJsLog:(NSString *)logType logInfo:(NSDictionary *)logInfo{
     
-    NSLog(@"receivedJsLog:");
-    //   NSLog(@"%@ - %@", logType, logInfo);
+ //   NSLog(@"receivedJsLog:");
+ //      NSLog(@"%@ - %@", logType, logInfo);
 }
 
 - (void)webView:(id)webView receivedPluginEvent:(NSDictionary *)event fromPluginInContainer:(NSString *)containerID{
-    NSLog(@"receivedPluginEvent:");
-    //   NSLog(@"%@ - %@", containerID, event);
+    NSLog(@"receivedPluginEvent: %@ - %@", containerID, event);
+    
+    //if([containerID isEqualToString:@"loginDiv")
     
 }
 

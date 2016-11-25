@@ -29,7 +29,7 @@
 
 -(void)showGigyaComponent{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:@"NEW-RegistrationLogin" forKey:@"screenSet"];
+    [params setObject:@"Default-RegistrationLogin" forKey:@"screenSet"];
     
     GSPluginView *pluginView = [[GSPluginView alloc] initWithFrame:self.view.frame];
     pluginView.delegate = self;

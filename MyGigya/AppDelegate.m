@@ -29,7 +29,7 @@ AppDelegate *app;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [Gigya initWithAPIKey:@"3_n6HDyxNJWZ9C6j1JcQrexeRptHoiCayyzLQ0pXGd05WwXoYNaZAC83wQ2F7kCLWN" application:application launchOptions:launchOptions APIDomain:@"eu1.gigya.com"];
+    [Gigya initWithAPIKey:@"3_vTgl0OesHXghCCF_0FZb-UMuJlMSHueZOktQ_64NBBs8bT6145TQs3JvAhauLy-K" application:application launchOptions:launchOptions APIDomain:@"eu1.gigya.com"];
     return YES;
 }
 

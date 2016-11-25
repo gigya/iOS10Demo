@@ -17,6 +17,9 @@
     NSLog(@"Account Did Login: %@", account);
     app.userAccount = account;
     
+    NSLog(@"%@",account.JSONString);
+    
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ContentViewController *myVC = (ContentViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ContentViewController"];
     [self.landingView presentViewController:myVC animated:YES completion:nil];
