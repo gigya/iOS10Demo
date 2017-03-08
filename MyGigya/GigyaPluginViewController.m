@@ -7,6 +7,7 @@
 //
 
 #import "GigyaPluginViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface GigyaPluginViewController ()
 
@@ -17,7 +18,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self showVideo];
     [self showGigyaComponent];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    if(![player isPreparedToPlay]){
+        [player prepareToPlay];
+        [player play];
+
+    }
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [player stop];
+    //player = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,10 +47,23 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:@"Default-RegistrationLogin" forKey:@"screenSet"];
     
-    GSPluginView *pluginView = [[GSPluginView alloc] initWithFrame:self.view.frame];
+    CGRect region = CGRectMake(0, 0, 375, 567);
+    
+    GSPluginView *pluginView = [[GSPluginView alloc] initWithFrame:region];
+    pluginView.backgroundColor = [UIColor clearColor];
     pluginView.delegate = self;
     [pluginView loadPlugin:@"accounts.screenSet" parameters:params];
     [self.view addSubview:pluginView];
+    
+    for(int i=0; i < pluginView.subviews.count ; i++){
+        UIView *thisView = [pluginView.subviews objectAtIndex:i];
+        thisView.backgroundColor = [UIColor clearColor];
+        thisView.opaque = NO;
+    }
+    
+    [self.view addSubview:pluginView];
+    
+    
     
 }
 
@@ -54,6 +83,34 @@
     NSLog(@"Plugin error: %@", [error localizedDescription]);
 }
 
+-(void)showVideo{
+    
+    NSString *thePath =[[NSBundle mainBundle] pathForResource:@"repsol" ofType:@"mp4"];
+    
+    NSURL *videoUrl = [NSURL fileURLWithPath:thePath];
+    player = [[MPMoviePlayerController alloc]  initWithContentURL: videoUrl];
+    
+    player.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:player.view];
+    
+    player.scalingMode = MPMovieScalingModeAspectFit;
+    player.fullscreen = true;
+    player.shouldAutoplay = true;
+    player.controlStyle = MPMovieControlStyleNone;
+    
+    
+    [player prepareToPlay];
+    [player play];
+    
+    // app.screenSaverOn = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlaybackComplete:) name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+    
+}
+
+-(void)moviePlaybackComplete:(NSNotification *)notification {
+    [player play];
+}
 
 
 /*

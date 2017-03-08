@@ -7,6 +7,7 @@
 //
 
 #import "GigyaWebBridgeViewController.h"
+#import <GigyaSDK/Gigya.h>
 
 @interface GigyaWebBridgeViewController ()
 
@@ -20,10 +21,13 @@
     [self webBridgeView];
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 -(void)webBridgeView{
     
@@ -33,13 +37,15 @@
     
     [NSHTTPCookieStorage sharedHTTPCookieStorage].cookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
     
-    NSString *url=@"http://gheerish.gigya-cs.com/raasDemo/aa.html";
+    NSString *url=@"https://gheerish.gigya-cs.com/raasDemo/test.html";
     
     NSURL *nsurl=[NSURL URLWithString:url];
     
     NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
     [webView loadRequest:nsrequest];
     [self.view addSubview:webView];
+    
+    
 }
 
 // GIGYA Web View/Web bridge Delegate functionality
@@ -62,14 +68,12 @@
 - (void)webView:(id)webView receivedJsLog:(NSString *)logType logInfo:(NSDictionary *)logInfo{
     
  //   NSLog(@"receivedJsLog:");
- //      NSLog(@"%@ - %@", logType, logInfo);
+       NSLog(@"%@ - %@", logType, logInfo);
 }
 
 - (void)webView:(id)webView receivedPluginEvent:(NSDictionary *)event fromPluginInContainer:(NSString *)containerID{
     NSLog(@"receivedPluginEvent: %@ - %@", containerID, event);
-    
-    //if([containerID isEqualToString:@"loginDiv")
-    
+   
 }
 
 
@@ -83,4 +87,14 @@
 }
 */
 
+- (IBAction)eu_tapped:(id)sender {
+   
+    
+}
+
+- (IBAction)au_tapped:(id)sender {
+}
+
+- (IBAction)us_tapped:(id)sender {
+}
 @end

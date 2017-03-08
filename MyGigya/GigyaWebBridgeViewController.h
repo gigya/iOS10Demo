@@ -10,5 +10,9 @@
 #import <GigyaSDK/Gigya.h>
 
 @interface GigyaWebBridgeViewController : UIViewController<GSWebBridgeDelegate,UIWebViewDelegate>
+- (IBAction)eu_tapped:(id)sender;
+- (IBAction)au_tapped:(id)sender;
+- (IBAction)us_tapped:(id)sender;
+
 
 @end

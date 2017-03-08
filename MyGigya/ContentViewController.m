@@ -29,7 +29,7 @@ bool pluginShowing;
     
     [NSHTTPCookieStorage sharedHTTPCookieStorage].cookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
     
-    NSString *url=@"http://gheerish.gigya-cs.com/raasDemo/content.html";
+    NSString *url=@"https://www.repsol.com/es_en/";
     
     NSURL *nsurl=[NSURL URLWithString:url];
     
@@ -105,6 +105,7 @@ bool pluginShowing;
 
 - (IBAction)commentsTapped:(id)sender {
     
+    
     if(!pluginShowing){
         
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -132,10 +133,10 @@ bool pluginShowing;
     if(!pluginShowing){
         
         NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
-        [userAction setObject:@"AC Milan news" forKey:@"title"];
+        [userAction setObject:@"REPSOL" forKey:@"title"];
         //[userAction setObject:@"AC Milan Recent form" forKey:@"subtitle"];
-        [userAction setObject:@"AC Milan has been playing spectacular football in recent weeks." forKey:@"description"];
-        [userAction setObject:@"http://gheerish.gigya-cs.com/raasDemo/content.html" forKey:@"linkBack"];
+        [userAction setObject:@"Repsol is one of the world’s leading integrated energy companies" forKey:@"description"];
+        [userAction setObject:@"https://www.repsol.com/es_en/" forKey:@"linkBack"];
         
         reactionsHolder = [[UIView alloc] initWithFrame:CGRectMake(0, 580, 375, 50)];
         reactView = [[GSPluginView alloc] initWithFrame:CGRectMake(0,0,375,50)];

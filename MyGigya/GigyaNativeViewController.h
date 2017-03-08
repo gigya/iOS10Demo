@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface GigyaNativeViewController : UIViewController
+@interface GigyaNativeViewController : UIViewController{
+    MPMoviePlayerController *player;
+}
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UILabel *errorField;
 @property (weak, nonatomic) IBOutlet UIView *socialView;
+@property (weak, nonatomic) IBOutlet UIView *vidView;
+@property (weak, nonatomic) IBOutlet UIView *contView;
 
 - (IBAction)nativeTapped:(id)sender;
 
