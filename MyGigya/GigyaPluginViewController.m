@@ -19,16 +19,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self showVideo];
+   // [self showVideo];
     [self showGigyaComponent];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    if(![player isPreparedToPlay]){
-        [player prepareToPlay];
-        [player play];
-
-    }
+//    if(![player isPreparedToPlay]){
+//        [player prepareToPlay];
+//        [player play];
+//
+//    }
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -50,16 +50,16 @@
     CGRect region = CGRectMake(0, 0, 375, 567);
     
     GSPluginView *pluginView = [[GSPluginView alloc] initWithFrame:region];
-    pluginView.backgroundColor = [UIColor clearColor];
+   // pluginView.backgroundColor = [UIColor clearColor];
     pluginView.delegate = self;
     [pluginView loadPlugin:@"accounts.screenSet" parameters:params];
     [self.view addSubview:pluginView];
     
-    for(int i=0; i < pluginView.subviews.count ; i++){
-        UIView *thisView = [pluginView.subviews objectAtIndex:i];
-        thisView.backgroundColor = [UIColor clearColor];
-        thisView.opaque = NO;
-    }
+//    for(int i=0; i < pluginView.subviews.count ; i++){
+//        UIView *thisView = [pluginView.subviews objectAtIndex:i];
+//        thisView.backgroundColor = [UIColor clearColor];
+//        thisView.opaque = NO;
+//    }
     
     [self.view addSubview:pluginView];
     

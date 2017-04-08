@@ -10,19 +10,27 @@
 		68136D2E1DD136B900FFAB93 /* Gestures@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68136D2C1DD136B900FFAB93 /* Gestures@2x.png */; };
 		68136D2F1DD136B900FFAB93 /* Players@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68136D2D1DD136B900FFAB93 /* Players@2x.png */; };
 		68136D3D1DD13ADC00FFAB93 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68136D3C1DD13ADC00FFAB93 /* Images.xcassets */; };
+		6813BA261E72D4F4004B1F57 /* GigyaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		6813BA281E72D8A9004B1F57 /* GigyaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		68279E601E0970EF0045A342 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5B1E0970EF0045A342 /* GoogleSignIn.framework */; };
 		68279E621E0970EF0045A342 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5D1E0970EF0045A342 /* GoogleAppUtilities.framework */; };
 		68279E631E0970EF0045A342 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5E1E0970EF0045A342 /* GoogleSignInDependencies.framework */; };
 		68279E641E0970EF0045A342 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5F1E0970EF0045A342 /* GoogleSymbolUtilities.framework */; };
 		68279E661E09719C0045A342 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E651E09719C0045A342 /* SystemConfiguration.framework */; };
 		68279E681E0971A20045A342 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E671E0971A20045A342 /* SafariServices.framework */; };
-		682985301E02258B007DFFA0 /* repsol.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6829852F1E02258B007DFFA0 /* repsol.mp4 */; };
 		686930241DE86683003B7D84 /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 686930231DE86683003B7D84 /* CommentsTableViewController.m */; };
 		686934BE1DC36A4D0000AE18 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BA1DC36A4D0000AE18 /* Bolts.framework */; };
 		686934BF1DC36A4D0000AE18 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BB1DC36A4D0000AE18 /* FBSDKCoreKit.framework */; };
 		686934C01DC36A4D0000AE18 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BC1DC36A4D0000AE18 /* FBSDKLoginKit.framework */; };
 		686934C11DC36A4D0000AE18 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BD1DC36A4D0000AE18 /* FBSDKShareKit.framework */; };
-		686934C41DC39DFE0000AE18 /* GigyaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934C31DC39DFE0000AE18 /* GigyaSDK.framework */; };
+		68A133991E995475009F3A7F /* facebook-logo-png-20.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A133951E995475009F3A7F /* facebook-logo-png-20.png */; };
+		68A1339A1E995475009F3A7F /* linkedin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A133961E995475009F3A7F /* linkedin2.png */; };
+		68A1339B1E995475009F3A7F /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A133971E995475009F3A7F /* twitter.png */; };
+		68A1339F1E995753009F3A7F /* google2.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A1339E1E995753009F3A7F /* google2.png */; };
+		68A133A11E9959C4009F3A7F /* button_login2.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A133A01E9959C4009F3A7F /* button_login2.png */; };
+		68A133A31E995DE4009F3A7F /* london.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68A133A21E995DE4009F3A7F /* london.jpg */; };
+		68A133A51E9972E9009F3A7F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A133A41E9972E9009F3A7F /* Accounts.framework */; };
+		68A133A71E9972F3009F3A7F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A133A61E9972F3009F3A7F /* Social.framework */; };
 		68C2141A1DCF5C3A00B001C5 /* G_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 68C214191DCF5C3A00B001C5 /* G_256.png */; };
 		68C2141E1DCF6AEC00B001C5 /* GigyaPluginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2141D1DCF6AEC00B001C5 /* GigyaPluginViewController.m */; };
 		68C214211DCF6B9100B001C5 /* GigyaWebBridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C214201DCF6B9100B001C5 /* GigyaWebBridgeViewController.m */; };
@@ -30,10 +38,6 @@
 		68C2142A1DCF6F1E00B001C5 /* GigyaAccountManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C214291DCF6F1E00B001C5 /* GigyaAccountManagement.m */; };
 		68C2142D1DCF826600B001C5 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2142C1DCF826600B001C5 /* ContentViewController.m */; };
 		68C214301DCFB48900B001C5 /* GigyaNativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2142F1DCFB48900B001C5 /* GigyaNativeViewController.m */; };
-		68C214341DCFBE9B00B001C5 /* linkedinButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 68C214311DCFBE9B00B001C5 /* linkedinButton.png */; };
-		68C214351DCFBE9B00B001C5 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 68C214321DCFBE9B00B001C5 /* images.png */; };
-		68C214361DCFBE9B00B001C5 /* facebook-sign-in-button-png-26 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 68C214331DCFBE9B00B001C5 /* facebook-sign-in-button-png-26 (1).png */; };
-		68C214381DCFBFD400B001C5 /* login-button-png-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 68C214371DCFBFD400B001C5 /* login-button-png-2.png */; };
 		D7F4A7211CF49082001983FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F4A7201CF49082001983FD /* main.m */; };
 		D7F4A7241CF49082001983FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F4A7231CF49082001983FD /* AppDelegate.m */; };
 		D7F4A72A1CF49082001983FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F4A7281CF49082001983FD /* Main.storyboard */; };
@@ -59,10 +63,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6813BA291E72D8A9004B1F57 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6813BA281E72D8A9004B1F57 /* GigyaSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		68136D2C1DD136B900FFAB93 /* Gestures@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gestures@2x.png"; sourceTree = "<group>"; };
 		68136D2D1DD136B900FFAB93 /* Players@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Players@2x.png"; sourceTree = "<group>"; };
 		68136D3C1DD13ADC00FFAB93 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GigyaSDK.framework; sourceTree = "<group>"; };
 		68279E5B1E0970EF0045A342 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		68279E5C1E0970EF0045A342 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
 		68279E5D1E0970EF0045A342 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppUtilities.framework; sourceTree = "<group>"; };
@@ -70,7 +89,6 @@
 		68279E5F1E0970EF0045A342 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		68279E651E09719C0045A342 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		68279E671E0971A20045A342 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		6829852F1E02258B007DFFA0 /* repsol.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = repsol.mp4; sourceTree = "<group>"; };
 		686930221DE86683003B7D84 /* CommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewController.h; sourceTree = "<group>"; };
 		686930231DE86683003B7D84 /* CommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewController.m; sourceTree = "<group>"; };
 		686934BA1DC36A4D0000AE18 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -78,7 +96,14 @@
 		686934BC1DC36A4D0000AE18 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		686934BD1DC36A4D0000AE18 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		686934C21DC36B340000AE18 /* MyGigya.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyGigya.entitlements; sourceTree = "<group>"; };
-		686934C31DC39DFE0000AE18 /* GigyaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GigyaSDK.framework; sourceTree = "<group>"; };
+		68A133951E995475009F3A7F /* facebook-logo-png-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-logo-png-20.png"; sourceTree = "<group>"; };
+		68A133961E995475009F3A7F /* linkedin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkedin2.png; sourceTree = "<group>"; };
+		68A133971E995475009F3A7F /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		68A1339E1E995753009F3A7F /* google2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google2.png; sourceTree = "<group>"; };
+		68A133A01E9959C4009F3A7F /* button_login2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_login2.png; sourceTree = "<group>"; };
+		68A133A21E995DE4009F3A7F /* london.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = london.jpg; sourceTree = "<group>"; };
+		68A133A41E9972E9009F3A7F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		68A133A61E9972F3009F3A7F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		68C214191DCF5C3A00B001C5 /* G_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = G_256.png; sourceTree = "<group>"; };
 		68C2141C1DCF6AEC00B001C5 /* GigyaPluginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GigyaPluginViewController.h; sourceTree = "<group>"; };
 		68C2141D1DCF6AEC00B001C5 /* GigyaPluginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigyaPluginViewController.m; sourceTree = "<group>"; };
@@ -92,10 +117,6 @@
 		68C2142C1DCF826600B001C5 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		68C2142E1DCFB48900B001C5 /* GigyaNativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GigyaNativeViewController.h; sourceTree = "<group>"; };
 		68C2142F1DCFB48900B001C5 /* GigyaNativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigyaNativeViewController.m; sourceTree = "<group>"; };
-		68C214311DCFBE9B00B001C5 /* linkedinButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkedinButton.png; sourceTree = "<group>"; };
-		68C214321DCFBE9B00B001C5 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
-		68C214331DCFBE9B00B001C5 /* facebook-sign-in-button-png-26 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-sign-in-button-png-26 (1).png"; sourceTree = "<group>"; };
-		68C214371DCFBFD400B001C5 /* login-button-png-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-png-2.png"; sourceTree = "<group>"; };
 		D7F4A71C1CF49082001983FD /* MyGigya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGigya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F4A7201CF49082001983FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7F4A7221CF49082001983FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,13 +137,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A133A71E9972F3009F3A7F /* Social.framework in Frameworks */,
+				68A133A51E9972E9009F3A7F /* Accounts.framework in Frameworks */,
+				6813BA261E72D4F4004B1F57 /* GigyaSDK.framework in Frameworks */,
 				68279E681E0971A20045A342 /* SafariServices.framework in Frameworks */,
 				68279E661E09719C0045A342 /* SystemConfiguration.framework in Frameworks */,
 				68279E601E0970EF0045A342 /* GoogleSignIn.framework in Frameworks */,
 				68279E621E0970EF0045A342 /* GoogleAppUtilities.framework in Frameworks */,
 				68279E631E0970EF0045A342 /* GoogleSignInDependencies.framework in Frameworks */,
 				68279E641E0970EF0045A342 /* GoogleSymbolUtilities.framework in Frameworks */,
-				686934C41DC39DFE0000AE18 /* GigyaSDK.framework in Frameworks */,
 				686934BE1DC36A4D0000AE18 /* Bolts.framework in Frameworks */,
 				686934BF1DC36A4D0000AE18 /* FBSDKCoreKit.framework in Frameworks */,
 				686934C01DC36A4D0000AE18 /* FBSDKLoginKit.framework in Frameworks */,
@@ -150,6 +173,9 @@
 		686934AF1DC356C20000AE18 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68A133A61E9972F3009F3A7F /* Social.framework */,
+				68A133A41E9972E9009F3A7F /* Accounts.framework */,
+				6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */,
 				68279E671E0971A20045A342 /* SafariServices.framework */,
 				68279E651E09719C0045A342 /* SystemConfiguration.framework */,
 				68279E5B1E0970EF0045A342 /* GoogleSignIn.framework */,
@@ -157,7 +183,6 @@
 				68279E5D1E0970EF0045A342 /* GoogleAppUtilities.framework */,
 				68279E5E1E0970EF0045A342 /* GoogleSignInDependencies.framework */,
 				68279E5F1E0970EF0045A342 /* GoogleSymbolUtilities.framework */,
-				686934C31DC39DFE0000AE18 /* GigyaSDK.framework */,
 				686934BA1DC36A4D0000AE18 /* Bolts.framework */,
 				686934BB1DC36A4D0000AE18 /* FBSDKCoreKit.framework */,
 				686934BC1DC36A4D0000AE18 /* FBSDKLoginKit.framework */,
@@ -169,13 +194,14 @@
 		68C2141B1DCF5C4A00B001C5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				6829852F1E02258B007DFFA0 /* repsol.mp4 */,
+				68A133A21E995DE4009F3A7F /* london.jpg */,
+				68A133A01E9959C4009F3A7F /* button_login2.png */,
+				68A1339E1E995753009F3A7F /* google2.png */,
+				68A133951E995475009F3A7F /* facebook-logo-png-20.png */,
+				68A133961E995475009F3A7F /* linkedin2.png */,
+				68A133971E995475009F3A7F /* twitter.png */,
 				68136D2C1DD136B900FFAB93 /* Gestures@2x.png */,
 				68136D2D1DD136B900FFAB93 /* Players@2x.png */,
-				68C214371DCFBFD400B001C5 /* login-button-png-2.png */,
-				68C214311DCFBE9B00B001C5 /* linkedinButton.png */,
-				68C214321DCFBE9B00B001C5 /* images.png */,
-				68C214331DCFBE9B00B001C5 /* facebook-sign-in-button-png-26 (1).png */,
 				68C214191DCF5C3A00B001C5 /* G_256.png */,
 			);
 			name = Images;
@@ -268,6 +294,7 @@
 				D7F4A7181CF49082001983FD /* Sources */,
 				D7F4A7191CF49082001983FD /* Frameworks */,
 				D7F4A71A1CF49082001983FD /* Resources */,
+				6813BA291E72D8A9004B1F57 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,7 +347,7 @@
 		D7F4A7141CF49082001983FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Gheerish Bansoodeb";
 				TargetAttributes = {
 					D7F4A71B1CF49082001983FD = {
@@ -369,14 +396,15 @@
 			files = (
 				D7F4A72F1CF49082001983FD /* LaunchScreen.storyboard in Resources */,
 				68136D3D1DD13ADC00FFAB93 /* Images.xcassets in Resources */,
-				682985301E02258B007DFFA0 /* repsol.mp4 in Resources */,
 				68136D2E1DD136B900FFAB93 /* Gestures@2x.png in Resources */,
-				68C214361DCFBE9B00B001C5 /* facebook-sign-in-button-png-26 (1).png in Resources */,
 				D7F4A72A1CF49082001983FD /* Main.storyboard in Resources */,
-				68C214381DCFBFD400B001C5 /* login-button-png-2.png in Resources */,
-				68C214351DCFBE9B00B001C5 /* images.png in Resources */,
+				68A1339B1E995475009F3A7F /* twitter.png in Resources */,
+				68A133A11E9959C4009F3A7F /* button_login2.png in Resources */,
+				68A1339A1E995475009F3A7F /* linkedin2.png in Resources */,
+				68A133A31E995DE4009F3A7F /* london.jpg in Resources */,
+				68A133991E995475009F3A7F /* facebook-logo-png-20.png in Resources */,
 				68C2141A1DCF5C3A00B001C5 /* G_256.png in Resources */,
-				68C214341DCFBE9B00B001C5 /* linkedinButton.png in Resources */,
+				68A1339F1E995753009F3A7F /* google2.png in Resources */,
 				68136D2F1DD136B900FFAB93 /* Players@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,13 +29,12 @@ bool pluginShowing;
     
     [NSHTTPCookieStorage sharedHTTPCookieStorage].cookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
     
-    NSString *url=@"https://www.repsol.com/es_en/";
+    NSString *url=@"http://www.gigya.com";
     
     NSURL *nsurl=[NSURL URLWithString:url];
     
     NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
     [GSWebBridge registerWebView:self.webView delegate:self];
-
     
     [self.webView loadRequest:nsrequest];
 }

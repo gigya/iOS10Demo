@@ -32,6 +32,8 @@
 -(void)webBridgeView{
     
     UIWebView *webView=[[UIWebView alloc]initWithFrame:self.view.frame];
+   
+    
     [GSWebBridge registerWebView:webView delegate:self];
     [webView setDelegate:self];
     
