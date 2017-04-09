@@ -9,13 +9,14 @@
 #import "GigyaNativeViewController.h"
 #import <GigyaSDK/Gigya.h>
 
-@interface GigyaNativeViewController ()
+@interface GigyaNativeViewController () 
 
 @end
 
 @implementation GigyaNativeViewController
 
-bool regSwitch, resetPwdSwitch;
+bool regSwitch, resetPwdSwitch, profCompletion;
+NSString *linkReg;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,6 +29,7 @@ bool regSwitch, resetPwdSwitch;
 
     regSwitch = false;
     resetPwdSwitch= false;
+    profCompletion = false;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,33 +37,193 @@ bool regSwitch, resetPwdSwitch;
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewDidAppear:(BOOL)animated  {
+    self.errorField.hidden = YES;
+}
 
+//Gigya RaaS Flows
 
+-(void)accountsLinkingFlow{
+    
+}
+
+-(void)passwordResetFlow{
+    
+}
+
+-(void)profileCompletionFlow{
+    
+}
+
+-(void)registerFlow{
+    
+}
+
+-(void)loginFlow{
+    
+}
+
+-(void)socialLoginFlow{
+    
+}
 
 
 -(void)socialLogin:(NSString*)provider{
+    self.errorField.hidden = YES;
     
-    //[Gigya setDontLeaveApp:NO];
-    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:@"saveProfileAndFail" forKey:@"x_conflictHandling"];
+   
     NSLog(@"Provider is: %@",provider);
+    
+    
     [Gigya loginToProvider:provider
-                parameters:nil
+                parameters:parameters
                       over:self
          completionHandler:^(GSUser *user, NSError *error) {
              NSLog(@"%ld",error.code);
-             if (error.code == 0) {
+             if (!error) {
                  // Login was successful
                  NSLog(@"%@",user);
              } else {
                  // Handle errors
                  NSLog(@"%@",error);
                  
-                 //account linking
-                 if(error.code == 403043){
+                 //profile completion / required fields
+                 if(error.code == 206001){
+                     profCompletion = YES;
                      
+                     //check required fields. In this example, email address is a required field
+                     NSString *regToken = error.userInfo[@"regToken"];
+                     linkReg = regToken;
+                     
+                     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Profile Completion Page" message:@"Please enter your email address:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
+                     [av setAlertViewStyle:UIAlertViewStylePlainTextInput];
+                     
+                     // Alert style customization
+                     [[av textFieldAtIndex:0] setPlaceholder:@"Email Address"];
+                     [av show];
+
                  }
                  
-                 
+                 //account linking
+                 if(error.code == 200010 || error.code == 403043){
+                    
+                     NSString *regToken = error.userInfo[@"regToken"];
+                     linkReg = regToken;
+                     
+                     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+                     [params setObject:regToken forKey:@"regToken"];
+                     
+                     GSRequest *request = [GSRequest requestForMethod:@"accounts.getConflictingAccount" parameters:params];
+                     [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                         if (!error) {
+                             NSLog(@"Success - %@",response);
+                             // Success! Use the response object.
+                             
+                             NSDictionary *providers = response[@"conflictingAccount"];
+                             NSArray* availableProviders = providers[@"loginProviders"];
+                             
+                             UIAlertController * alert = [UIAlertController
+                                                          alertControllerWithTitle:@"Accounts Linking"
+                                                          message:@"You have previously logged in with a different account. To link your accounts, please re-authenticate using the following options:"
+                                                          preferredStyle:UIAlertControllerStyleAlert];
+                             
+                             for (int i = 0; i < availableProviders.count ; i++){
+                                 
+                                 NSString* prov = [availableProviders objectAtIndex:i];
+                                 
+                                 if([prov isEqualToString:@"site"]){
+                                     UIAlertAction* yesButton = [UIAlertAction
+                                                                 actionWithTitle:@"Email/Pwd"
+                                                                 style:UIAlertActionStyleDefault
+                                                                 handler:^(UIAlertAction * action) {
+                                                                     
+                                                                     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Login" message:@"Login with your username and password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Login", nil];
+                                                                     [av setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+                                                                     
+                                                                     // Alert style customization
+                                                                     [[av textFieldAtIndex:1] setSecureTextEntry:YES];
+                                                                     [[av textFieldAtIndex:0] setPlaceholder:@"Email Address"];
+                                                                     [[av textFieldAtIndex:1] setPlaceholder:@"Password"];
+                                                                     [av show];
+                                                                     
+                                                                     
+                                                                 }];
+                                     
+                                     [alert addAction:yesButton];
+                                     
+                                 }
+                                 else{
+                                     UIAlertAction* noButton = [UIAlertAction
+                                                                actionWithTitle:prov
+                                                                style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * action) {
+                                                                    
+                                                                    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+                                                                    [parameters setObject:@"link" forKey:@"loginMode"];
+                                                                    [parameters setObject:regToken forKey:@"regToken"];
+                                                                    
+                                                                    
+                                                                    [Gigya loginToProvider:prov parameters:parameters
+                                                                                      over:self
+                                                                         completionHandler:^(GSUser * _Nullable user, NSError * _Nullable error) {
+                                                                             
+                                                                             if(error.code == 200009){
+                                                                                 
+                                                                                 self.errorField.text = @"Accounts successfully linked.";
+                                                                                 self.errorField.hidden = NO;
+                                                                                 
+                                                                                 [Gigya loginToProvider:provider
+                                                                                             parameters:nil
+                                                                                                   over:self
+                                                                                      completionHandler:^(GSUser *user, NSError *error) {
+                                                                                          NSLog(@"%ld",error.code);
+                                                                                          if (!error) {
+                                                                                              // Login was successful
+                                                                                              NSLog(@"%@",user);
+                                                                                          }
+                                                                                          else {
+                                                                                              NSLog(@"error - %@", error.localizedDescription);
+                                                                                              self.errorField.text = error.localizedDescription;
+                                                                                              self.errorField.hidden = NO;
+                                                                                              
+                                                                                              // Check the error code according to the GSErrorCode enum, and handle it.
+                                                                                          }
+                                                                                      }];
+                                                                             }
+                                                                             
+                                                                         }];
+                                                                    
+                                                                    
+                                                                }];
+                                     
+                                     [alert addAction:noButton];
+                                     
+                                 }
+                                 
+                             }
+                             
+                             
+                             
+                             
+                             [self presentViewController:alert animated:YES completion:nil];
+
+                         }
+                         else {
+                             NSLog(@"error - %@", error.localizedDescription);
+                             self.errorField.text = error.localizedDescription;
+                             self.errorField.hidden = NO;
+                             
+                             // Check the error code according to the GSErrorCode enum, and handle it.
+                         }
+                     }];
+                 }
+                 else{
+                     NSLog(@"error - %@", error.localizedDescription);
+                     self.errorField.text = error.localizedDescription;
+                     self.errorField.hidden = NO;
+                 }
              }
          }];
     
@@ -319,4 +481,197 @@ bool regSwitch, resetPwdSwitch;
 - (IBAction)linkedTapped:(id)sender {
     [self socialLogin:@"linkedin"];
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    if(buttonIndex == 1){
+        
+        if(profCompletion){
+            
+            NSString *regToken2 = linkReg;//response[@"regToken"];
+            
+            NSString *profileData = [NSString stringWithFormat: @"{ 'email' : '%@'  }", [alertView textFieldAtIndex:0].text] ;
+            NSString *dataData =  @"{ 'terms' : 'true' }" ;
+            
+            NSMutableDictionary *userAction2 = [NSMutableDictionary dictionary];
+            [userAction2 setObject:profileData forKey:@"profile"];
+            [userAction2 setObject:dataData forKey:@"data"];
+            [userAction2 setObject:regToken2 forKey:@"regToken"];
+            [userAction2 setObject:@"saveProfileAndFail" forKey:@"conflictHandling"];
+            
+            
+            GSRequest *request = [GSRequest requestForMethod:@"accounts.setAccountInfo" parameters:userAction2];
+            [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                if (!error) {
+                    NSLog(@"Success - %@",response);
+                    // Success! Use the response object.
+                    
+                    NSMutableDictionary *userAction3 = [NSMutableDictionary dictionary];
+                    [userAction3 setObject:regToken2 forKey:@"regToken"];
+                    
+                    GSRequest *request = [GSRequest requestForMethod:@"accounts.finalizeRegistration" parameters:userAction3];
+                    [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                        if (!error) {
+                            NSLog(@"Success - %@",response);
+                            // Success! Use the response object.
+                            
+                            }
+                        else {
+                            NSLog(@"error - %@", error.localizedDescription);
+                            self.errorField.text = error.localizedDescription;
+                            self.errorField.hidden = NO;
+                            
+                            // Check the error code according to the GSErrorCode enum, and handle it.
+                        }
+                    }];
+                }
+                if(error.code == 200010 || error.code == 403043){
+                    
+                    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+                    [params setObject:linkReg forKey:@"regToken"];
+                    
+                    GSRequest *request = [GSRequest requestForMethod:@"accounts.getConflictingAccount" parameters:params];
+                    [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                        if (!error) {
+                            NSLog(@"Success - %@",response);
+                            // Success! Use the response object.
+                            
+                            NSDictionary *providers = response[@"conflictingAccount"];
+                            NSArray* availableProviders = providers[@"loginProviders"];
+                            
+                            UIAlertController * alert = [UIAlertController
+                                                         alertControllerWithTitle:@"Accounts Linking"
+                                                         message:@"You have previously logged in with a different account. To link your accounts, please re-authenticate using the following options:"
+                                                         preferredStyle:UIAlertControllerStyleAlert];
+                            
+                            for (int i = 0; i < availableProviders.count ; i++){
+                                
+                                NSString* prov = [availableProviders objectAtIndex:i];
+                                
+                                if([prov isEqualToString:@"site"]){
+                                    UIAlertAction* yesButton = [UIAlertAction
+                                                                actionWithTitle:@"Email/Pwd"
+                                                                style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * action) {
+                                                                    
+                                                                    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Login" message:@"Login with your username and password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Login", nil];
+                                                                    [av setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+                                                                    
+                                                                    // Alert style customization
+                                                                    [[av textFieldAtIndex:1] setSecureTextEntry:YES];
+                                                                    [[av textFieldAtIndex:0] setPlaceholder:@"Email Address"];
+                                                                    [[av textFieldAtIndex:1] setPlaceholder:@"Password"];
+                                                                    [av show];
+                                                                    
+                                                                    
+                                                                }];
+                                    
+                                    [alert addAction:yesButton];
+                                    
+                                }
+                                else{
+                                    UIAlertAction* noButton = [UIAlertAction
+                                                               actionWithTitle:prov
+                                                               style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction * action) {
+                                                                   
+                                                                   NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+                                                                   [parameters setObject:@"link" forKey:@"loginMode"];
+                                                                   [parameters setObject:linkReg forKey:@"regToken"];
+                                                                   
+                                                                   
+                                                                   [Gigya loginToProvider:prov parameters:parameters
+                                                                                     over:self
+                                                                        completionHandler:^(GSUser * _Nullable user, NSError * _Nullable error) {
+                                                                            
+                                                                            if(error.code == 200009){
+                                                                                
+                                                                                self.errorField.text = @"Accounts successfully linked.";
+                                                                                self.errorField.hidden = NO;
+                                                                                
+//                                                                                [Gigya loginToProvider:provider
+//                                                                                            parameters:nil
+//                                                                                                  over:self
+//                                                                                     completionHandler:^(GSUser *user, NSError *error) {
+//                                                                                         NSLog(@"%ld",error.code);
+//                                                                                         if (!error) {
+//                                                                                             // Login was successful
+//                                                                                             NSLog(@"%@",user);
+//                                                                                         }
+//                                                                                         else {
+//                                                                                             NSLog(@"error - %@", error.localizedDescription);
+//                                                                                             self.errorField.text = error.localizedDescription;
+//                                                                                             self.errorField.hidden = NO;
+//                                                                                             
+//                                                                                             // Check the error code according to the GSErrorCode enum, and handle it.
+//                                                                                         }
+//                                                                                     }];
+                                                                            }
+                                                                            
+                                                                        }];
+                                                                   
+                                                                   
+                                                               }];
+                                    
+                                    [alert addAction:noButton];
+                                    
+                                }
+                                
+                            }
+                            
+                            
+                            
+                            
+                            [self presentViewController:alert animated:YES completion:nil];
+                            
+                        }
+                        else {
+                            NSLog(@"error - %@", error.localizedDescription);
+                            self.errorField.text = error.localizedDescription;
+                            self.errorField.hidden = NO;
+                            
+                            // Check the error code according to the GSErrorCode enum, and handle it.
+                        }
+                    }];
+                }
+                else {
+                    NSLog(@"error - %@", error.localizedDescription);
+                    self.errorField.text = error.localizedDescription;
+                    self.errorField.hidden = NO;
+                    
+                    // Check the error code according to the GSErrorCode enum, and handle it.
+                }
+            }];
+            profCompletion = NO;
+            
+        }
+        else{
+        NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
+        [userAction setObject:[alertView textFieldAtIndex:0].text forKey:@"loginID"];
+        [userAction setObject:[alertView textFieldAtIndex:1].text forKey:@"password"];
+         [userAction setObject:linkReg forKey:@"regToken"];
+        
+        
+        GSRequest *request = [GSRequest requestForMethod:@"accounts.linkAccounts" parameters:userAction];
+        [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+            if (!error) {
+                NSLog(@"Success - %@",response);
+                // Success! Use the response object.
+                self.errorField.text = @"Accounts successfully linked.";
+                self.errorField.hidden = NO;
+                
+            }
+            else {
+                NSLog(@"error - %@", error.localizedDescription);
+                self.errorField.text = error.localizedDescription;
+                self.errorField.hidden = NO;
+                
+                // Check the error code according to the GSErrorCode enum, and handle it.
+            }
+        }];
+        }
+
+    }
+}
+
 @end

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		68136D2E1DD136B900FFAB93 /* Gestures@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68136D2C1DD136B900FFAB93 /* Gestures@2x.png */; };
 		68136D2F1DD136B900FFAB93 /* Players@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68136D2D1DD136B900FFAB93 /* Players@2x.png */; };
-		68136D3D1DD13ADC00FFAB93 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68136D3C1DD13ADC00FFAB93 /* Images.xcassets */; };
 		6813BA261E72D4F4004B1F57 /* GigyaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6813BA281E72D8A9004B1F57 /* GigyaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		68279E601E0970EF0045A342 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5B1E0970EF0045A342 /* GoogleSignIn.framework */; };
@@ -18,7 +17,6 @@
 		68279E641E0970EF0045A342 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5F1E0970EF0045A342 /* GoogleSymbolUtilities.framework */; };
 		68279E661E09719C0045A342 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E651E09719C0045A342 /* SystemConfiguration.framework */; };
 		68279E681E0971A20045A342 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E671E0971A20045A342 /* SafariServices.framework */; };
-		686930241DE86683003B7D84 /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 686930231DE86683003B7D84 /* CommentsTableViewController.m */; };
 		686934BE1DC36A4D0000AE18 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BA1DC36A4D0000AE18 /* Bolts.framework */; };
 		686934BF1DC36A4D0000AE18 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BB1DC36A4D0000AE18 /* FBSDKCoreKit.framework */; };
 		686934C01DC36A4D0000AE18 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BC1DC36A4D0000AE18 /* FBSDKLoginKit.framework */; };
@@ -31,6 +29,7 @@
 		68A133A31E995DE4009F3A7F /* london.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68A133A21E995DE4009F3A7F /* london.jpg */; };
 		68A133A51E9972E9009F3A7F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A133A41E9972E9009F3A7F /* Accounts.framework */; };
 		68A133A71E9972F3009F3A7F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A133A61E9972F3009F3A7F /* Social.framework */; };
+		68A133AB1E998D6F009F3A7F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A133AA1E998D6F009F3A7F /* Images.xcassets */; };
 		68C2141A1DCF5C3A00B001C5 /* G_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 68C214191DCF5C3A00B001C5 /* G_256.png */; };
 		68C2141E1DCF6AEC00B001C5 /* GigyaPluginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2141D1DCF6AEC00B001C5 /* GigyaPluginViewController.m */; };
 		68C214211DCF6B9100B001C5 /* GigyaWebBridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C214201DCF6B9100B001C5 /* GigyaWebBridgeViewController.m */; };
@@ -80,7 +79,6 @@
 /* Begin PBXFileReference section */
 		68136D2C1DD136B900FFAB93 /* Gestures@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gestures@2x.png"; sourceTree = "<group>"; };
 		68136D2D1DD136B900FFAB93 /* Players@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Players@2x.png"; sourceTree = "<group>"; };
-		68136D3C1DD13ADC00FFAB93 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GigyaSDK.framework; sourceTree = "<group>"; };
 		68279E5B1E0970EF0045A342 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		68279E5C1E0970EF0045A342 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
@@ -89,8 +87,6 @@
 		68279E5F1E0970EF0045A342 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		68279E651E09719C0045A342 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		68279E671E0971A20045A342 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		686930221DE86683003B7D84 /* CommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewController.h; sourceTree = "<group>"; };
-		686930231DE86683003B7D84 /* CommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewController.m; sourceTree = "<group>"; };
 		686934BA1DC36A4D0000AE18 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		686934BB1DC36A4D0000AE18 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		686934BC1DC36A4D0000AE18 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -104,6 +100,7 @@
 		68A133A21E995DE4009F3A7F /* london.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = london.jpg; sourceTree = "<group>"; };
 		68A133A41E9972E9009F3A7F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		68A133A61E9972F3009F3A7F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		68A133AA1E998D6F009F3A7F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		68C214191DCF5C3A00B001C5 /* G_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = G_256.png; sourceTree = "<group>"; };
 		68C2141C1DCF6AEC00B001C5 /* GigyaPluginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GigyaPluginViewController.h; sourceTree = "<group>"; };
 		68C2141D1DCF6AEC00B001C5 /* GigyaPluginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigyaPluginViewController.m; sourceTree = "<group>"; };
@@ -244,15 +241,13 @@
 				68C2142C1DCF826600B001C5 /* ContentViewController.m */,
 				68C214251DCF6E9E00B001C5 /* LandingTabBarController.h */,
 				68C214261DCF6E9E00B001C5 /* LandingTabBarController.m */,
-				686930221DE86683003B7D84 /* CommentsTableViewController.h */,
-				686930231DE86683003B7D84 /* CommentsTableViewController.m */,
 				D7F4A7221CF49082001983FD /* AppDelegate.h */,
 				D7F4A7231CF49082001983FD /* AppDelegate.m */,
 				D7F4A7281CF49082001983FD /* Main.storyboard */,
 				D7F4A72D1CF49082001983FD /* LaunchScreen.storyboard */,
 				D7F4A7301CF49082001983FD /* Info.plist */,
 				686934C21DC36B340000AE18 /* MyGigya.entitlements */,
-				68136D3C1DD13ADC00FFAB93 /* Images.xcassets */,
+				68A133AA1E998D6F009F3A7F /* Images.xcassets */,
 				D7F4A71F1CF49082001983FD /* Supporting Files */,
 			);
 			path = MyGigya;
@@ -395,7 +390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7F4A72F1CF49082001983FD /* LaunchScreen.storyboard in Resources */,
-				68136D3D1DD13ADC00FFAB93 /* Images.xcassets in Resources */,
 				68136D2E1DD136B900FFAB93 /* Gestures@2x.png in Resources */,
 				D7F4A72A1CF49082001983FD /* Main.storyboard in Resources */,
 				68A1339B1E995475009F3A7F /* twitter.png in Resources */,
@@ -404,6 +398,7 @@
 				68A133A31E995DE4009F3A7F /* london.jpg in Resources */,
 				68A133991E995475009F3A7F /* facebook-logo-png-20.png in Resources */,
 				68C2141A1DCF5C3A00B001C5 /* G_256.png in Resources */,
+				68A133AB1E998D6F009F3A7F /* Images.xcassets in Resources */,
 				68A1339F1E995753009F3A7F /* google2.png in Resources */,
 				68136D2F1DD136B900FFAB93 /* Players@2x.png in Resources */,
 			);
@@ -432,7 +427,6 @@
 			files = (
 				68C2141E1DCF6AEC00B001C5 /* GigyaPluginViewController.m in Sources */,
 				68C214211DCF6B9100B001C5 /* GigyaWebBridgeViewController.m in Sources */,
-				686930241DE86683003B7D84 /* CommentsTableViewController.m in Sources */,
 				D7F4A7241CF49082001983FD /* AppDelegate.m in Sources */,
 				68C2142D1DCF826600B001C5 /* ContentViewController.m in Sources */,
 				D7F4A7211CF49082001983FD /* main.m in Sources */,
@@ -585,6 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MyGigya/MyGigya.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2A958G2R4K;
@@ -607,6 +602,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MyGigya/MyGigya.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2A958G2R4K;

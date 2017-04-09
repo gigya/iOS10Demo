@@ -92,7 +92,7 @@ bool pluginShowing;
 
 - (IBAction)viewProfileTapped:(id)sender {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:@"NEW-ProfileUpdate" forKey:@"screenSet"];
+    [params setObject:@"Default-ProfileUpdate" forKey:@"screenSet"];
     
     profileView = [[GSPluginView alloc] initWithFrame:self.view.frame];
     profileView.delegate = self;
@@ -132,10 +132,10 @@ bool pluginShowing;
     if(!pluginShowing){
         
         NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
-        [userAction setObject:@"REPSOL" forKey:@"title"];
+        [userAction setObject:@"Gigya" forKey:@"title"];
         //[userAction setObject:@"AC Milan Recent form" forKey:@"subtitle"];
-        [userAction setObject:@"Repsol is one of the world’s leading integrated energy companies" forKey:@"description"];
-        [userAction setObject:@"https://www.repsol.com/es_en/" forKey:@"linkBack"];
+        [userAction setObject:@"Gigya is The Leader in Customer Identity Management" forKey:@"description"];
+        [userAction setObject:@"http://www.gigya.com" forKey:@"linkBack"];
         
         reactionsHolder = [[UIView alloc] initWithFrame:CGRectMake(0, 580, 375, 50)];
         reactView = [[GSPluginView alloc] initWithFrame:CGRectMake(0,0,375,50)];
@@ -171,8 +171,8 @@ bool pluginShowing;
         NSMutableArray *reactions = [NSMutableArray new];
         
         NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
-        [userAction setObject:@"Football News" forKey:@"title"];
-        [userAction setObject:@"Awesome Article" forKey:@"description"];
+        [userAction setObject:@"Gigya News" forKey:@"title"];
+        [userAction setObject:@"Awesome Company" forKey:@"description"];
         [userAction setObject:@"http://www.gigya.com" forKey:@"linkBack"];
         
         NSMutableDictionary *reaction1 = [NSMutableDictionary dictionary];
@@ -237,6 +237,7 @@ bool pluginShowing;
 {
     NSLog(@"Plugin event from %@ - %@", pluginView.plugin, [event objectForKey:@"eventName"]);
     
+    //detect afterSubmit event of screenset - and close screen natively
     if([pluginView.plugin  isEqual: @"accounts.screenSet"] &&  [[event objectForKey:@"eventName"]  isEqual: @"afterSubmit"]){
         [pluginView removeFromSuperview];
         pluginView = nil;

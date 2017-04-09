@@ -298,32 +298,6 @@
                     <view key="view" contentMode="scaleToFill" id="lhz-13-B87">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9a-2N-H7q">
-                                <rect key="frame" x="16" y="39" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="EU"/>
-                                <connections>
-                                    <action selector="eu_tapped:" destination="kUf-rz-C3J" eventType="touchUpInside" id="WT7-sX-8Pz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZL-II-0uu">
-                                <rect key="frame" x="279" y="39" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="AU"/>
-                                <connections>
-                                    <action selector="au_tapped:" destination="kUf-rz-C3J" eventType="touchUpInside" id="FJs-pI-2rE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSI-cF-QnF">
-                                <rect key="frame" x="157" y="39" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="USA"/>
-                                <connections>
-                                    <action selector="us_tapped:" destination="kUf-rz-C3J" eventType="touchUpInside" id="1Hm-OT-Nj3"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="WebBridge" image="Players.png" id="6SU-rL-l7s"/>

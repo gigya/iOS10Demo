@@ -20,8 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     GigyaAccountManagement *gigyaAccount = [[GigyaAccountManagement alloc]init];
     gigyaAccount.landingView = self;
+    
+    //Establish Gigya Accounts wrapper
     [Gigya setAccountsDelegate:gigyaAccount];
     [gigyaAccount validateGigyaSession];
 }
