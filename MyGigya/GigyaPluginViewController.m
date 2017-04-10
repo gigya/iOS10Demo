@@ -8,12 +8,14 @@
 
 #import "GigyaPluginViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
-
 @interface GigyaPluginViewController ()
 
 @end
 
 @implementation GigyaPluginViewController
+
+UIWebView* webView;
+GSPluginView* pluginView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +28,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    for(int i=0; i < pluginView.subviews.count ; i++){
+        
+        UIView *thisView = [pluginView.subviews objectAtIndex:i];
+        
+        if([thisView isKindOfClass:[UIWebView class]]){
+            webView = thisView;
+            [webView setDelegate:self];
+        }
+    }
+
+}
+
 //Gigya Plugin view integration
 
 -(void)showGigyaComponent{
@@ -34,18 +49,14 @@
     
     CGRect region = CGRectMake(0, 0, 375, 567);
     
-    GSPluginView *pluginView = [[GSPluginView alloc] initWithFrame:region];
+    pluginView = [[GSPluginView alloc] initWithFrame:region];
     pluginView.delegate = self;
+    pluginView.showLoginProgress = YES;
     [pluginView loadPlugin:@"accounts.screenSet" parameters:params];
     [self.view addSubview:pluginView];
    
 //  GET UNDERLYING WEB-VIEW DISPLAYING THE PLUGIN
     
-//    for(int i=0; i < pluginView.subviews.count ; i++){
-    
-//        UIView *thisView = [pluginView.subviews objectAtIndex:i];
-        // if([thisView isKindOf UIWebView])
-      //}
     
     [self.view addSubview:pluginView];
 }
@@ -65,6 +76,39 @@
 - (void)pluginView:(GSPluginView *)pluginView didFailWithError:(NSError *)error
 {
     NSLog(@"Plugin error: %@", [error localizedDescription]);
+}
+
+// GIGYA Web View/Web bridge Delegate functionality
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    // NSLog(@"WebView load URL: %@ \n\n\n",[request URL]);
+    
+    if ([GSWebBridge handleRequest:request webView:webView]) {
+        
+        NSString* url = [[request URL] absoluteString];
+        
+            if ([url rangeOfString:@"eventName%3Derror"].location != NSNotFound) {
+                if ([url rangeOfString:@"User%2520did%2520not%2520allow%2520access%2520to%2520Twitter%2520Accounts"].location != NSNotFound) {
+                    NSLog(@"GSWebBridge URL Request: %@ \n\n\n",[request URL]);
+                    
+                    UIAlertController * alert=   [UIAlertController
+                                                  alertControllerWithTitle:@"Provider permission denied"
+                                                  message:@"Error: User did not allow access to Twitter Accounts.\nIt seems that you have previously denied permission for this app to use Twitter.\nTo re-enable permission, please close the app and open:\nSettings -> Privacy -> Twitter -> and turn on permission for this app."
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    [self presentViewController:alert animated:YES completion:nil];
+                    
+                }
+            }
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [GSWebBridge webViewDidStartLoad:webView];
 }
 
 

@@ -10,8 +10,6 @@
 #import <GigyaSDK/Gigya.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface GigyaPluginViewController : UIViewController<GSPluginViewDelegate>{
-    MPMoviePlayerController *player;
-}
+@interface GigyaPluginViewController : UIViewController<GSPluginViewDelegate,UIWebViewDelegate>
 
 @end
