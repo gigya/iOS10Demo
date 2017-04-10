@@ -91,10 +91,22 @@ GSPluginView* pluginView;
                 if ([url rangeOfString:@"User%2520did%2520not%2520allow%2520access%2520to%2520Twitter%2520Accounts"].location != NSNotFound) {
                     NSLog(@"GSWebBridge URL Request: %@ \n\n\n",[request URL]);
                     
+                    
                     UIAlertController * alert=   [UIAlertController
                                                   alertControllerWithTitle:@"Provider permission denied"
                                                   message:@"Error: User did not allow access to Twitter Accounts.\nIt seems that you have previously denied permission for this app to use Twitter.\nTo re-enable permission, please close the app and open:\nSettings -> Privacy -> Twitter -> and turn on permission for this app."
                                                   preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction * action)
+                                         {
+                                             [self dismissViewControllerAnimated:YES completion:nil];
+                                             
+                                         }];
+                    [alert addAction:ok]; // add action to uialertcontroller
+
                     
                     [self presentViewController:alert animated:YES completion:nil];
                     
