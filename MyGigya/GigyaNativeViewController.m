@@ -3,7 +3,8 @@
 //  MyGigya
 //
 //  Created by Gheerish Bansoodeb on 06/11/2016.
-//  Copyright © 2016 Gheerish Bansoodeb. All rights reserved.
+//  Updated by Gheerish Bansoodeb on 10/04/2017.
+//  Copyright © 2016 Gheerish Bansoodeb - Gigya INC. All rights reserved.
 //
 
 #import "GigyaNativeViewController.h"
@@ -43,30 +44,184 @@ NSString *linkReg;
 
 //Gigya RaaS Flows
 
--(void)accountsLinkingFlow{
+
+
+-(void)passwordResetFlow : (NSString*) emailAddress{
+    NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
+    [userAction setObject:emailAddress forKey:@"loginID"];
+    [userAction setObject:emailAddress forKey:@"email"];
     
+    GSRequest *request = [GSRequest requestForMethod:@"accounts.resetPassword" parameters:userAction];
+    [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+        if (!error) {
+            NSLog(@"Success - %@",response);
+            // Success! Use the response object.
+            self.errorField.text = @"Please check your email to reset your password";
+            self.errorField.hidden = NO;
+            
+            self.passwordField.hidden= NO;
+            self.btnRegister.hidden = NO;
+            self.loginBtn.titleLabel.text = @"LOGIN";
+            self.forgotPwBtn.hidden = NO;
+            resetPwdSwitch = NO;
+            
+            
+        }
+        else {
+            NSLog(@"error - %@", error.localizedDescription);
+            self.errorField.text = error.localizedDescription;
+            self.errorField.hidden = NO;
+            
+            // Check the error code according to the GSErrorCode enum, and handle it.
+        }
+    }];
 }
 
--(void)passwordResetFlow{
-    
-}
-
--(void)profileCompletionFlow{
-    
-}
 
 -(void)registerFlow{
     
+    NSString *firstName = self.firstNameField.text;
+    NSString *lastName = self.lastNameField.text;
+    NSString *email= self.emailField.text;
+    NSString *password = self.passwordField.text;
+    NSString *tnc;
+    
+    if(self.tncField.on){
+        tnc = @"true";
+    }
+    else{
+        tnc = @"false";
+    }
+    
+    GSRequest *request = [GSRequest requestForMethod:@"accounts.initRegistration" parameters:nil];
+    [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+        if (!error) {
+            NSLog(@"Success - %@",response);
+            // Success! Use the response object.
+            
+            NSString *regToken = response[@"regToken"];
+            
+            NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
+            [userAction setObject:email forKey:@"email"];
+            [userAction setObject:password forKey:@"password"];
+            [userAction setObject:regToken forKey:@"regToken"];
+            
+            
+            GSRequest *request = [GSRequest requestForMethod:@"accounts.register" parameters:userAction];
+            [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                if (error.code == GSErrorAccountPendingRegistration) {
+                    NSLog(@"Success - %@",response);
+                    // Success! Use the response object.
+                    
+                    //Get new regToken from response as an error was thrown
+                    NSString *regToken2 = response[@"regToken"];
+                    
+                    NSString *profileData = [NSString stringWithFormat: @"{ 'firstName' : '%@' , 'lastName' : '%@' }", firstName, lastName] ;
+                    NSString *dataData = [NSString stringWithFormat: @"{ 'terms' : '%@' }", tnc] ;
+                    
+                    NSMutableDictionary *userAction2 = [NSMutableDictionary dictionary];
+                    [userAction2 setObject:profileData forKey:@"profile"];
+                    [userAction2 setObject:dataData forKey:@"data"];
+                    [userAction2 setObject:regToken2 forKey:@"regToken"];
+                    
+                    
+                    GSRequest *request = [GSRequest requestForMethod:@"accounts.setAccountInfo" parameters:userAction2];
+                    [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                        if (!error) {
+                            NSLog(@"Success - %@",response);
+                            // Success! Use the response object.
+                            
+                            NSMutableDictionary *userAction3 = [NSMutableDictionary dictionary];
+                            [userAction3 setObject:regToken2 forKey:@"regToken"];
+                            
+                            GSRequest *request = [GSRequest requestForMethod:@"accounts.finalizeRegistration" parameters:userAction3];
+                            [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                                if (!error) {
+                                    NSLog(@"Success - %@",response);
+                                    // Success! Use the response object.
+                                    
+                                    //Login the user
+                                    NSMutableDictionary *userAction4 = [NSMutableDictionary dictionary];
+                                    [userAction4 setObject:self.emailField.text forKey:@"loginID"];
+                                    [userAction4 setObject:self.passwordField.text forKey:@"password"];
+                                    
+                                    
+                                    GSRequest *request = [GSRequest requestForMethod:@"accounts.login" parameters:userAction4];
+                                    [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                                        if (!error) {
+                                            NSLog(@"Success - %@",response);
+                                            // Success! Use the response object.
+                                        }
+                                        else {
+                                            NSLog(@"error - %@", error.localizedDescription);
+                                            self.errorField.text = error.localizedDescription;
+                                            self.errorField.hidden = NO;
+                                            
+                                            // Check the error code according to the GSErrorCode enum, and handle it.
+                                        }
+                                    }];
+                                }
+                                else {
+                                    NSLog(@"error - %@", error.localizedDescription);
+                                    self.errorField.text = error.localizedDescription;
+                                    self.errorField.hidden = NO;
+                                    
+                                    // Check the error code according to the GSErrorCode enum, and handle it.
+                                }
+                            }];
+                        }
+                        else {
+                            NSLog(@"error - %@", error.localizedDescription);
+                            self.errorField.text = error.localizedDescription;
+                            self.errorField.hidden = NO;
+                            
+                            // Check the error code according to the GSErrorCode enum, and handle it.
+                        }
+                    }];
+                }
+                else {
+                    NSLog(@"error - %@", error.localizedDescription);
+                    self.errorField.text = error.localizedDescription;
+                    self.errorField.hidden = NO;
+                    
+                    // Check the error code according to the GSErrorCode enum, and handle it.
+                }
+            }];
+        }
+        else {
+            NSLog(@"error - %@", error.localizedDescription);
+            self.errorField.text = error.localizedDescription;
+            self.errorField.hidden = NO;
+            
+            // Check the error code according to the GSErrorCode enum, and handle it.
+        }
+    }];
 }
 
--(void)loginFlow{
+-(void)loginFlow : (NSString*) loginId : (NSString*) password {
+    
+    NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
+    [userAction setObject:loginId forKey:@"loginID"];
+    [userAction setObject:password forKey:@"password"];
+    
+    
+    GSRequest *request = [GSRequest requestForMethod:@"accounts.login" parameters:userAction];
+    [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+        if (!error) {
+            NSLog(@"Success - %@",response);
+            // Success! Use the response object.
+            
+        }
+        else {
+            NSLog(@"error - %@", error.localizedDescription);
+            self.errorField.text = error.localizedDescription;
+            self.errorField.hidden = NO;
+            
+            // Check the error code according to the GSErrorCode enum, and handle it.
+        }
+    }];
     
 }
-
--(void)socialLoginFlow{
-    
-}
-
 
 -(void)socialLogin:(NSString*)provider{
     self.errorField.hidden = YES;
@@ -76,12 +231,11 @@ NSString *linkReg;
    
     NSLog(@"Provider is: %@",provider);
     
-    
     [Gigya loginToProvider:provider
                 parameters:parameters
                       over:self
          completionHandler:^(GSUser *user, NSError *error) {
-             NSLog(@"%ld",error.code);
+          
              if (!error) {
                  // Login was successful
                  NSLog(@"%@",user);
@@ -178,7 +332,7 @@ NSString *linkReg;
                                                                                              parameters:nil
                                                                                                    over:self
                                                                                       completionHandler:^(GSUser *user, NSError *error) {
-                                                                                          NSLog(@"%ld",error.code);
+                                                                             
                                                                                           if (!error) {
                                                                                               // Login was successful
                                                                                               NSLog(@"%@",user);
@@ -235,186 +389,17 @@ NSString *linkReg;
     self.errorField.hidden = YES;
     
     if(!regSwitch && !resetPwdSwitch){
-        //Login
-
-        NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
-        [userAction setObject:self.emailField.text forKey:@"loginID"];
-        [userAction setObject:self.passwordField.text forKey:@"password"];
-    
-    
-        GSRequest *request = [GSRequest requestForMethod:@"accounts.login" parameters:userAction];
-        [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
-            if (!error) {
-                NSLog(@"Success - %@",response);
-                // Success! Use the response object.
-
-            }
-            else {
-                NSLog(@"error - %@", error.localizedDescription);
-                self.errorField.text = error.localizedDescription;
-                self.errorField.hidden = NO;
-            
-                // Check the error code according to the GSErrorCode enum, and handle it.
-            }
-        }];
+        //Login Flow
+        [self loginFlow:self.emailField.text :self.passwordField.text];
     }
     else if(resetPwdSwitch){
-        
         //password reset flow
-        
-        NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
-        [userAction setObject:self.emailField.text forKey:@"loginID"];
-        [userAction setObject:self.emailField.text forKey:@"email"];
-        
-        
-        GSRequest *request = [GSRequest requestForMethod:@"accounts.resetPassword" parameters:userAction];
-        [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
-            if (!error) {
-                NSLog(@"Success - %@",response);
-                // Success! Use the response object.
-                self.errorField.text = @"Please check your email to reset your password";
-                self.errorField.hidden = NO;
-                
-                self.passwordField.hidden= NO;
-                self.btnRegister.hidden = NO;
-                self.loginBtn.titleLabel.text = @"LOGIN";
-                self.forgotPwBtn.hidden = NO;
-                resetPwdSwitch = NO;
-
-                
-            }
-            else {
-                NSLog(@"error - %@", error.localizedDescription);
-                self.errorField.text = error.localizedDescription;
-                self.errorField.hidden = NO;
-                
-                // Check the error code according to the GSErrorCode enum, and handle it.
-            }
-        }];
-
-        
+        [self passwordResetFlow:self.emailField.text];
     }
     else{
         //Register
-        
-        NSString *firstName = self.firstNameField.text;
-        NSString *lastName = self.lastNameField.text;
-        NSString *email= self.emailField.text;
-        NSString *password = self.passwordField.text;
-        NSString *tnc;
-        
-        if(self.tncField.on){
-            tnc = @"true";
-        }
-        else{
-            tnc = @"false";
-        }
-        
-        GSRequest *request = [GSRequest requestForMethod:@"accounts.initRegistration" parameters:nil];
-        [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
-            if (!error) {
-                NSLog(@"Success - %@",response);
-                // Success! Use the response object.
-                
-                NSString *regToken = response[@"regToken"];
-                
-                NSMutableDictionary *userAction = [NSMutableDictionary dictionary];
-                [userAction setObject:email forKey:@"email"];
-                [userAction setObject:password forKey:@"password"];
-                [userAction setObject:regToken forKey:@"regToken"];
-                
-                
-                GSRequest *request = [GSRequest requestForMethod:@"accounts.register" parameters:userAction];
-                [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
-                    if (error.code == GSErrorAccountPendingRegistration) {
-                        NSLog(@"Success - %@",response);
-                        // Success! Use the response object.
-                        
-                        //Get new regToken from response as an error was thrown
-                        NSString *regToken2 = response[@"regToken"];
-                        
-                        NSString *profileData = [NSString stringWithFormat: @"{ 'firstName' : '%@' , 'lastName' : '%@' }", firstName, lastName] ;
-                        NSString *dataData = [NSString stringWithFormat: @"{ 'terms' : '%@' }", tnc] ;
-                        
-                        NSMutableDictionary *userAction2 = [NSMutableDictionary dictionary];
-                        [userAction2 setObject:profileData forKey:@"profile"];
-                        [userAction2 setObject:dataData forKey:@"data"];
-                        [userAction2 setObject:regToken2 forKey:@"regToken"];
-
-                        
-                        GSRequest *request = [GSRequest requestForMethod:@"accounts.setAccountInfo" parameters:userAction2];
-                        [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
-                            if (!error) {
-                                NSLog(@"Success - %@",response);
-                                // Success! Use the response object.
-                                
-                                NSMutableDictionary *userAction3 = [NSMutableDictionary dictionary];
-                                [userAction3 setObject:regToken2 forKey:@"regToken"];
-                                
-                                GSRequest *request = [GSRequest requestForMethod:@"accounts.finalizeRegistration" parameters:userAction3];
-                                [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
-                                    if (!error) {
-                                        NSLog(@"Success - %@",response);
-                                        // Success! Use the response object.
-                                        
-                                        //Login the user
-                                        NSMutableDictionary *userAction4 = [NSMutableDictionary dictionary];
-                                        [userAction4 setObject:self.emailField.text forKey:@"loginID"];
-                                        [userAction4 setObject:self.passwordField.text forKey:@"password"];
-                                        
-                                        
-                                        GSRequest *request = [GSRequest requestForMethod:@"accounts.login" parameters:userAction4];
-                                        [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
-                                            if (!error) {
-                                                NSLog(@"Success - %@",response);
-                                                // Success! Use the response object.
-                                            }
-                                            else {
-                                                NSLog(@"error - %@", error.localizedDescription);
-                                                self.errorField.text = error.localizedDescription;
-                                                self.errorField.hidden = NO;
-                                                
-                                                // Check the error code according to the GSErrorCode enum, and handle it.
-                                            }
-                                        }];
-                                    }
-                                    else {
-                                        NSLog(@"error - %@", error.localizedDescription);
-                                        self.errorField.text = error.localizedDescription;
-                                        self.errorField.hidden = NO;
-                                        
-                                        // Check the error code according to the GSErrorCode enum, and handle it.
-                                    }
-                                }];
-                            }
-                            else {
-                                NSLog(@"error - %@", error.localizedDescription);
-                                self.errorField.text = error.localizedDescription;
-                                self.errorField.hidden = NO;
-                                
-                                // Check the error code according to the GSErrorCode enum, and handle it.
-                            }
-                        }];
-                    }
-                    else {
-                        NSLog(@"error - %@", error.localizedDescription);
-                        self.errorField.text = error.localizedDescription;
-                        self.errorField.hidden = NO;
-                        
-                        // Check the error code according to the GSErrorCode enum, and handle it.
-                    }
-                }];
-            }
-            else {
-                NSLog(@"error - %@", error.localizedDescription);
-                self.errorField.text = error.localizedDescription;
-                self.errorField.hidden = NO;
-                
-                // Check the error code according to the GSErrorCode enum, and handle it.
-            }
-        }];
+        [self registerFlow];
     }
-    
 }
 
 - (IBAction)registerTapped:(id)sender {
