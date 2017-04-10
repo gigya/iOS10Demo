@@ -78,10 +78,8 @@ GSPluginView* pluginView;
     NSLog(@"Plugin error: %@", [error localizedDescription]);
 }
 
-// GIGYA Web View/Web bridge Delegate functionality
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    // NSLog(@"WebView load URL: %@ \n\n\n",[request URL]);
     
     if ([GSWebBridge handleRequest:request webView:webView]) {
         
@@ -89,7 +87,7 @@ GSPluginView* pluginView;
         
             if ([url rangeOfString:@"eventName%3Derror"].location != NSNotFound) {
                 if ([url rangeOfString:@"User%2520did%2520not%2520allow%2520access%2520to%2520Twitter%2520Accounts"].location != NSNotFound) {
-                    NSLog(@"GSWebBridge URL Request: %@ \n\n\n",[request URL]);
+                    NSLog(@"URL Request: %@ \n\n\n",[request URL]);
                     
                     
                     UIAlertController * alert=   [UIAlertController
@@ -105,7 +103,7 @@ GSPluginView* pluginView;
                                              [self dismissViewControllerAnimated:YES completion:nil];
                                              
                                          }];
-                    [alert addAction:ok]; // add action to uialertcontroller
+                    [alert addAction:ok];
 
                     
                     [self presentViewController:alert animated:YES completion:nil];
