@@ -30,15 +30,12 @@ GSPluginView* pluginView;
 
 -(void)viewDidAppear:(BOOL)animated{
     for(int i=0; i < pluginView.subviews.count ; i++){
-        
         UIView *thisView = [pluginView.subviews objectAtIndex:i];
-        
         if([thisView isKindOfClass:[UIWebView class]]){
             webView = thisView;
             [webView setDelegate:self];
         }
     }
-
 }
 
 //Gigya Plugin view integration
@@ -79,42 +76,37 @@ GSPluginView* pluginView;
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    
     if ([GSWebBridge handleRequest:request webView:webView]) {
-        
-        NSString* url = [[request URL] absoluteString];
-        
-            if ([url rangeOfString:@"eventName%3Derror"].location != NSNotFound) {
-                if ([url rangeOfString:@"User%2520did%2520not%2520allow%2520access%2520to%2520Twitter%2520Accounts"].location != NSNotFound) {
-                    NSLog(@"URL Request: %@ \n\n\n",[request URL]);
-                    
-                    
-                    UIAlertController * alert=   [UIAlertController
-                                                  alertControllerWithTitle:@"Provider permission denied"
-                                                  message:@"Error: User did not allow access to Twitter Accounts.\nIt seems that you have previously denied permission for this app to use Twitter.\nTo re-enable permission, please close the app and open:\nSettings -> Privacy -> Twitter -> and turn on permission for this app."
-                                                  preferredStyle:UIAlertControllerStyleAlert];
-                    
-                    UIAlertAction* ok = [UIAlertAction
-                                         actionWithTitle:@"OK"
-                                         style:UIAlertActionStyleDefault
-                                         handler:^(UIAlertAction * action)
-                                         {
-                                             [self dismissViewControllerAnimated:YES completion:nil];
-                                             
-                                         }];
-                    [alert addAction:ok];
-
-                    
-                    [self presentViewController:alert animated:YES completion:nil];
-                    
-                }
-            }
-        
+        [self handleTwitterPermissionError:request];
         return NO;
     }
-    
     return YES;
+}
+
+-(void)handleTwitterPermissionError:(NSURLRequest *)request {
+    NSString* url = [[request URL] absoluteString];
+    
+    if ([url rangeOfString:@"eventName%3Derror"].location != NSNotFound) {
+        if ([url rangeOfString:@"User%2520did%2520not%2520allow%2520access%2520to%2520Twitter%2520Accounts"].location != NSNotFound) {
+            NSLog(@"URL Request: %@ \n\n\n",[request URL]);
+
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"Provider permission denied"
+                                          message:@"Error: User did not allow access to Twitter Accounts.\nIt seems that you have previously denied permission for this app to use Twitter.\nTo re-enable permission, please close the app and open:\nSettings -> Privacy -> Twitter -> and turn on permission for this app."
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [self dismissViewControllerAnimated:YES completion:nil];
+                                 }];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        }
+    }
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
