@@ -7,20 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E282379B1F9D82E439FAC51 /* libPods-MyGigya.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB085A697065158A3A5430B9 /* libPods-MyGigya.a */; };
 		68136D2E1DD136B900FFAB93 /* Gestures@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68136D2C1DD136B900FFAB93 /* Gestures@2x.png */; };
 		68136D2F1DD136B900FFAB93 /* Players@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68136D2D1DD136B900FFAB93 /* Players@2x.png */; };
-		6813BA261E72D4F4004B1F57 /* GigyaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		6813BA281E72D8A9004B1F57 /* GigyaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		68279E601E0970EF0045A342 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5B1E0970EF0045A342 /* GoogleSignIn.framework */; };
-		68279E621E0970EF0045A342 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5D1E0970EF0045A342 /* GoogleAppUtilities.framework */; };
-		68279E631E0970EF0045A342 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5E1E0970EF0045A342 /* GoogleSignInDependencies.framework */; };
-		68279E641E0970EF0045A342 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E5F1E0970EF0045A342 /* GoogleSymbolUtilities.framework */; };
 		68279E661E09719C0045A342 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E651E09719C0045A342 /* SystemConfiguration.framework */; };
 		68279E681E0971A20045A342 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68279E671E0971A20045A342 /* SafariServices.framework */; };
-		686934BE1DC36A4D0000AE18 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BA1DC36A4D0000AE18 /* Bolts.framework */; };
-		686934BF1DC36A4D0000AE18 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BB1DC36A4D0000AE18 /* FBSDKCoreKit.framework */; };
-		686934C01DC36A4D0000AE18 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BC1DC36A4D0000AE18 /* FBSDKLoginKit.framework */; };
-		686934C11DC36A4D0000AE18 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686934BD1DC36A4D0000AE18 /* FBSDKShareKit.framework */; };
 		68A133991E995475009F3A7F /* facebook-logo-png-20.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A133951E995475009F3A7F /* facebook-logo-png-20.png */; };
 		68A1339A1E995475009F3A7F /* linkedin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A133961E995475009F3A7F /* linkedin2.png */; };
 		68A1339B1E995475009F3A7F /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A133971E995475009F3A7F /* twitter.png */; };
@@ -62,35 +53,12 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		6813BA291E72D8A9004B1F57 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6813BA281E72D8A9004B1F57 /* GigyaSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		37BB5A02753E36FFD8291308 /* Pods-MyGigya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGigya.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyGigya/Pods-MyGigya.debug.xcconfig"; sourceTree = "<group>"; };
 		68136D2C1DD136B900FFAB93 /* Gestures@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gestures@2x.png"; sourceTree = "<group>"; };
 		68136D2D1DD136B900FFAB93 /* Players@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Players@2x.png"; sourceTree = "<group>"; };
-		6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GigyaSDK.framework; sourceTree = "<group>"; };
-		68279E5B1E0970EF0045A342 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
-		68279E5C1E0970EF0045A342 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
-		68279E5D1E0970EF0045A342 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppUtilities.framework; sourceTree = "<group>"; };
-		68279E5E1E0970EF0045A342 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
-		68279E5F1E0970EF0045A342 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		68279E651E09719C0045A342 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		68279E671E0971A20045A342 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		686934BA1DC36A4D0000AE18 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		686934BB1DC36A4D0000AE18 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		686934BC1DC36A4D0000AE18 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		686934BD1DC36A4D0000AE18 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		686934C21DC36B340000AE18 /* MyGigya.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyGigya.entitlements; sourceTree = "<group>"; };
 		68A133951E995475009F3A7F /* facebook-logo-png-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-logo-png-20.png"; sourceTree = "<group>"; };
 		68A133961E995475009F3A7F /* linkedin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkedin2.png; sourceTree = "<group>"; };
@@ -114,6 +82,7 @@
 		68C2142C1DCF826600B001C5 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		68C2142E1DCFB48900B001C5 /* GigyaNativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GigyaNativeViewController.h; sourceTree = "<group>"; };
 		68C2142F1DCFB48900B001C5 /* GigyaNativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigyaNativeViewController.m; sourceTree = "<group>"; };
+		960FF06F61929EF8A326895A /* Pods-MyGigya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGigya.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyGigya/Pods-MyGigya.release.xcconfig"; sourceTree = "<group>"; };
 		D7F4A71C1CF49082001983FD /* MyGigya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGigya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F4A7201CF49082001983FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7F4A7221CF49082001983FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,6 +96,7 @@
 		D7F4A7401CF49083001983FD /* MyGigyaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGigyaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F4A7441CF49083001983FD /* MyGigyaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGigyaUITests.m; sourceTree = "<group>"; };
 		D7F4A7461CF49083001983FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB085A697065158A3A5430B9 /* libPods-MyGigya.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyGigya.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,17 +106,9 @@
 			files = (
 				68A133A71E9972F3009F3A7F /* Social.framework in Frameworks */,
 				68A133A51E9972E9009F3A7F /* Accounts.framework in Frameworks */,
-				6813BA261E72D4F4004B1F57 /* GigyaSDK.framework in Frameworks */,
 				68279E681E0971A20045A342 /* SafariServices.framework in Frameworks */,
 				68279E661E09719C0045A342 /* SystemConfiguration.framework in Frameworks */,
-				68279E601E0970EF0045A342 /* GoogleSignIn.framework in Frameworks */,
-				68279E621E0970EF0045A342 /* GoogleAppUtilities.framework in Frameworks */,
-				68279E631E0970EF0045A342 /* GoogleSignInDependencies.framework in Frameworks */,
-				68279E641E0970EF0045A342 /* GoogleSymbolUtilities.framework in Frameworks */,
-				686934BE1DC36A4D0000AE18 /* Bolts.framework in Frameworks */,
-				686934BF1DC36A4D0000AE18 /* FBSDKCoreKit.framework in Frameworks */,
-				686934C01DC36A4D0000AE18 /* FBSDKLoginKit.framework in Frameworks */,
-				686934C11DC36A4D0000AE18 /* FBSDKShareKit.framework in Frameworks */,
+				5E282379B1F9D82E439FAC51 /* libPods-MyGigya.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,18 +134,9 @@
 			children = (
 				68A133A61E9972F3009F3A7F /* Social.framework */,
 				68A133A41E9972E9009F3A7F /* Accounts.framework */,
-				6813BA251E72D4F4004B1F57 /* GigyaSDK.framework */,
 				68279E671E0971A20045A342 /* SafariServices.framework */,
 				68279E651E09719C0045A342 /* SystemConfiguration.framework */,
-				68279E5B1E0970EF0045A342 /* GoogleSignIn.framework */,
-				68279E5C1E0970EF0045A342 /* GoogleSignIn.bundle */,
-				68279E5D1E0970EF0045A342 /* GoogleAppUtilities.framework */,
-				68279E5E1E0970EF0045A342 /* GoogleSignInDependencies.framework */,
-				68279E5F1E0970EF0045A342 /* GoogleSymbolUtilities.framework */,
-				686934BA1DC36A4D0000AE18 /* Bolts.framework */,
-				686934BB1DC36A4D0000AE18 /* FBSDKCoreKit.framework */,
-				686934BC1DC36A4D0000AE18 /* FBSDKLoginKit.framework */,
-				686934BD1DC36A4D0000AE18 /* FBSDKShareKit.framework */,
+				DB085A697065158A3A5430B9 /* libPods-MyGigya.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,6 +157,15 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		A020B84A1C7F84C821151E30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37BB5A02753E36FFD8291308 /* Pods-MyGigya.debug.xcconfig */,
+				960FF06F61929EF8A326895A /* Pods-MyGigya.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D7F4A7131CF49082001983FD = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +174,7 @@
 				D7F4A7431CF49083001983FD /* MyGigyaUITests */,
 				D7F4A71D1CF49082001983FD /* Products */,
 				686934AF1DC356C20000AE18 /* Frameworks */,
+				A020B84A1C7F84C821151E30 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,10 +249,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7F4A7491CF49083001983FD /* Build configuration list for PBXNativeTarget "MyGigya" */;
 			buildPhases = (
+				DA24FEEF547102F76EA9991A /* [CP] Check Pods Manifest.lock */,
 				D7F4A7181CF49082001983FD /* Sources */,
 				D7F4A7191CF49082001983FD /* Frameworks */,
 				D7F4A71A1CF49082001983FD /* Resources */,
-				6813BA291E72D8A9004B1F57 /* Embed Frameworks */,
+				4C0DDF7EAA806BDB52DAC672 /* [CP] Embed Pods Frameworks */,
+				A8AC763B10420AE241A1C9AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,7 +312,7 @@
 				TargetAttributes = {
 					D7F4A71B1CF49082001983FD = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2A958G2R4K;
+						DevelopmentTeam = T48CNFXFQH;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -419,6 +384,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C0DDF7EAA806BDB52DAC672 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyGigya/Pods-MyGigya-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8AC763B10420AE241A1C9AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyGigya/Pods-MyGigya-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA24FEEF547102F76EA9991A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D7F4A7181CF49082001983FD /* Sources */ = {
@@ -577,12 +590,13 @@
 		};
 		D7F4A74A1CF49083001983FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37BB5A02753E36FFD8291308 /* Pods-MyGigya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MyGigya/MyGigya.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2A958G2R4K;
+				DEVELOPMENT_TEAM = T48CNFXFQH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -592,7 +606,10 @@
 				INFOPLIST_FILE = MyGigya/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigya.DemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -600,12 +617,13 @@
 		};
 		D7F4A74B1CF49083001983FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 960FF06F61929EF8A326895A /* Pods-MyGigya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MyGigya/MyGigya.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2A958G2R4K;
+				DEVELOPMENT_TEAM = T48CNFXFQH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -615,7 +633,10 @@
 				INFOPLIST_FILE = MyGigya/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigya.DemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

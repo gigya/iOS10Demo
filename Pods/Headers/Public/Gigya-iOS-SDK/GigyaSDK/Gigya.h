@@ -1,0 +1,1 @@
+../../../../Gigya-iOS-SDK/GigyaSDK.framework/Headers/Gigya.h

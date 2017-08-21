@@ -13,7 +13,6 @@
 - (IBAction)logoutTapped:(id)sender;
 - (IBAction)viewProfileTapped:(id)sender;
 - (IBAction)commentsTapped:(id)sender;
-- (IBAction)shareTapped:(id)sender;
 - (IBAction)reactTapped:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;

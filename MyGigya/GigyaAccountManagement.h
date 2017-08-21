@@ -6,14 +6,14 @@
 //  Copyright © 2016 Gheerish Bansoodeb. All rights reserved.
 //
 
+#import "LandingTabBarController.h"
 #import <Foundation/Foundation.h>
 #import <GigyaSDK/Gigya.h>
-#import "LandingTabBarController.h"
 
-@interface GigyaAccountManagement : NSObject<GSAccountsDelegate>
+@interface GigyaAccountManagement : NSObject <GSAccountsDelegate>
 
-@property (strong,nonatomic) LandingTabBarController *landingView;
+@property(strong, nonatomic) LandingTabBarController *landingView;
 
--(void)validateGigyaSession;
+- (void)validateGigyaSession;
 
 @end

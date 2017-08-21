@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *contView;
 @property (weak, nonatomic) IBOutlet UIView *uiSeperator;
+@property (weak, nonatomic) IBOutlet UIView *pwdSeparator;
 
 @property (weak, nonatomic) IBOutlet UISwitch *tncField;
 

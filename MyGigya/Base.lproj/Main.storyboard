@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pws-4i-g3v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pws-4i-g3v">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -160,22 +160,6 @@
                                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgd-UN-Icu">
-                                                <rect key="frame" x="8" y="244" width="168" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Don't have an account?"/>
-                                                <connections>
-                                                    <action selector="registerTapped:" destination="Q20-tw-8F3" eventType="touchUpInside" id="mtj-R2-iOf"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdp-wX-jbq">
-                                                <rect key="frame" x="240" y="244" width="127" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Forgot password?"/>
-                                                <connections>
-                                                    <action selector="forgotPwdTapped:" destination="Q20-tw-8F3" eventType="touchUpInside" id="EFh-0L-dPT"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjC-4q-Bg8">
                                                 <rect key="frame" x="36" y="205" width="271" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -187,8 +171,24 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMq-H2-6Hw">
-                                        <rect key="frame" x="8" y="296" width="359" height="88"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgd-UN-Icu">
+                                        <rect key="frame" x="8" y="280" width="213" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Don't have an account?"/>
+                                        <connections>
+                                            <action selector="registerTapped:" destination="Q20-tw-8F3" eventType="touchUpInside" id="mtj-R2-iOf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdp-wX-jbq">
+                                        <rect key="frame" x="240" y="280" width="127" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Forgot password?"/>
+                                        <connections>
+                                            <action selector="forgotPwdTapped:" destination="Q20-tw-8F3" eventType="touchUpInside" id="EFh-0L-dPT"/>
+                                        </connections>
+                                    </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMq-H2-6Hw">
+                                        <rect key="frame" x="15" y="312" width="359" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -211,6 +211,7 @@
                         <outlet property="lastNameField" destination="sbs-hl-mks" id="UQa-zL-q4c"/>
                         <outlet property="loginBtn" destination="hjC-4q-Bg8" id="J3i-76-m75"/>
                         <outlet property="passwordField" destination="L8O-Y2-UKN" id="5xl-0W-Rlc"/>
+                        <outlet property="pwdSeparator" destination="hwN-DU-gdP" id="1NC-HE-I8s"/>
                         <outlet property="tncField" destination="3Ti-Pe-Ezu" id="B5Q-4a-uWo"/>
                         <outlet property="tncLabel" destination="T3F-oL-x59" id="E5Q-5G-RpL"/>
                         <outlet property="uiSeperator" destination="Eni-qk-CLN" id="kO3-67-fKa"/>
@@ -254,11 +255,6 @@
                                     <barButtonItem title="Comments" id="x1b-s6-kPM">
                                         <connections>
                                             <action selector="commentsTapped:" destination="qWY-wY-Wsj" id="pg2-pB-Eg4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Share" id="C0e-xC-bMX">
-                                        <connections>
-                                            <action selector="shareTapped:" destination="qWY-wY-Wsj" id="sfr-2m-OOy"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="React" id="NvY-bk-HBM">
