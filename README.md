@@ -28,8 +28,8 @@ Depending on your xcode configuration, you may get a message from cocoa pods ind
 
 ## Gigya References
 
-[Gigya iOS SDK installation](https://developers.gigya.com/display/GD/iOS)
-[Gigya iOS Reference Documentation](https://developers.gigya.com/display/GD/iOS+SDK+Reference)
+[Gigya iOS SDK installation](https://developers.gigya.com/display/GD/iOS)<br/>
+[Gigya iOS Reference Documentation](https://developers.gigya.com/display/GD/iOS+SDK+Reference)<br/>
 [Gigya iOS SDK change log](https://developers.gigya.com/display/GD/iOS+SDK+Change+Log)
 
 ## Native Social Login
