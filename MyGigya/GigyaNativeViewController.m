@@ -336,15 +336,17 @@ bool regSwitch, resetPwdSwitch, profCompletion;
   [parameters setObject:loginID forKey:@"loginID"];
   [parameters setObject:password forKey:@"password"];
   [parameters setObject:currentRegToken forKey:@"regToken"];
+  [parameters setObject:@"link" forKey:@"loginMode"];
 
-  GSRequest *request = [GSRequest requestForMethod:@"accounts.linkAccounts"
+  GSRequest *request = [GSRequest requestForMethod:@"accounts.login"
                                         parameters:parameters];
   [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
-    if (!error) {
+    if (!error || error.code == 200009) {
       NSLog(@"Success - %@", response);
       // Success! Use the response object.
       self.errorField.text = @"Accounts successfully linked.";
       self.errorField.hidden = NO;
+        [self socialLogin:currentProvider];
 
     } else {
       NSLog(@"error - %@", error.localizedDescription);
@@ -394,12 +396,10 @@ bool regSwitch, resetPwdSwitch, profCompletion;
 
 /* Set Account Info Flow */
 - (void)setAccountInfo:(NSString *)profileData
-            customData:(NSString *)customData
               regToken:(nullable NSString *)regToken {
 
   NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
   [parameters setObject:profileData forKey:@"profile"];
-  [parameters setObject:customData forKey:@"data"];
 
   if (regToken) {
     [parameters setObject:regToken forKey:@"regToken"];
@@ -419,7 +419,7 @@ bool regSwitch, resetPwdSwitch, profCompletion;
     }
 
     else if (error.code == 200010 || error.code == 403043) {
-      [self accountLinkingFlow:regToken];
+        [self accountLinkingFlow:regToken];
     } else {
       NSLog(@"error - %@", error.localizedDescription);
       self.errorField.text = error.localizedDescription;
@@ -440,10 +440,9 @@ bool regSwitch, resetPwdSwitch, profCompletion;
       NSString *profileData =
           [NSString stringWithFormat:@"{ 'email' : '%@'  }",
                                      [alertView textFieldAtIndex:0].text];
-      NSString *customData = @"{ 'terms' : 'true' }";
+    //  NSString *customData = @"{ 'terms' : 'true' }";
 
       [self setAccountInfo:profileData
-                customData:customData
                   regToken:currentRegToken];
       profCompletion = NO;
     } else {
