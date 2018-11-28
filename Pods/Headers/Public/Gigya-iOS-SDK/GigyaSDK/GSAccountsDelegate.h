@@ -1,1 +1,0 @@
-../../../../Gigya-iOS-SDK/GigyaSDK.framework/Headers/GSAccountsDelegate.h

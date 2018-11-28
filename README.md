@@ -2,8 +2,8 @@
 
 Gigya’s iOS SDK provides an Objective-C interface for the Gigya API, allowing user login in their iOS devices. This project integrates Gigya's native SDK and show how Gigya Registration as a Service (RaaS) features can be implemented natively or by using the plugin view with screensets.<br/>
 The following social providers are available for native Login:<br/>
-Facebook, Google SignIn, Twitter<br/>
-And uses oAuth flows, REST and web login for other providers such as LinkedIn, Microsoft, Yahoo, etc..
+Facebook, Google SignIn, WeChat<br/>
+And uses oAuth flows, REST and web login for other providers such as Instagram, LinkedIn, Microsoft, Yahoo, etc..
 
 ## Demo features<br/>
 -> RaaS Login via Plugin View<br/>
@@ -19,12 +19,21 @@ And uses oAuth flows, REST and web login for other providers such as LinkedIn, M
 
 ## Installation
 
-A pod file is included in this project, which configures Gigya, Facebook and Google native SDKs. For the purpose of this demo, a test Gigya API key, Facebook and Google application keys are being used from a test account. Please do not use in Production codes - as this project is for demo purposes only.<br/>
+This project uses Gigya iOS SDK 3.6.7 (01/08/2018) and is configured as a local CocoaPod. Note that Gigya iOS SDK is no longer distributed on public CocoaPods.<br/>
+The latest version of Gigya iOS SDK and documentation is available here: https://developers.gigya.com/display/GD/iOS <br/>
+<br/>
+ 
+
+A pod file is included in the Sample application project, which configures Gigya, Facebook, Google and WeChat native SDKs. For the purpose of this demo, a test Gigya API key, Facebook, Google and WeChat application keys are being used from a test account. Please do not use in Production codes - as this project is for demo purposes only.<br/>
 From Terminal, run
 ```
 pod install
 ```
 Depending on your xcode configuration, you may get a message from cocoa pods indicating to use '$inherited' in 'Other Linker Flags' in Build Settings. This is important in order to avoide compilation linking issues.
+
+## Updating Gigya SDK as local Pod
+
+When a new version of Gigya iOS SDK is available, the Xcode Framework Project in: GigyaSDKLocalPod can be updated with the latest SDK and recompile. Update the PodSpec version number to reflect the current version.
 
 ## Gigya References
 
