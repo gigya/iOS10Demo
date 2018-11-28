@@ -1,0 +1,1 @@
+../../../../../../GigyaSDKLocalPod/GigyaObjC/GigyaSDK.framework/Headers/Gigya.h

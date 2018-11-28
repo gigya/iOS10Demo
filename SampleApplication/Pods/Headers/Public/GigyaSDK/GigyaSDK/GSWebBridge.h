@@ -1,0 +1,1 @@
+../../../../../../GigyaSDKLocalPod/GigyaObjC/GigyaSDK.framework/Headers/GSWebBridge.h

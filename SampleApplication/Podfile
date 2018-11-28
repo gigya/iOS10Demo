@@ -1,0 +1,7 @@
+target 'MyGigya' do
+	 pod 'GigyaSDK', :path => '../GigyaSDKLocalPod/GigyaObjC'
+	 pod 'FBSDKCoreKit'
+	 pod 'FBSDKLoginKit'
+	 pod 'Google/SignIn'
+	 pod 'WeChat'
+end

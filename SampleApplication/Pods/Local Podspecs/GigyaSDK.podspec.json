@@ -1,0 +1,31 @@
+{
+  "name": "GigyaSDK",
+  "version": "3.6.7",
+  "summary": "Gigya iOS SDK",
+  "description": "Gigya sdk",
+  "homepage": "https://developers.gigya.com/display/GD/iOS+SDK+Change+Log",
+  "license": "MIT",
+  "authors": {
+    "Gheerish Bansoodeb": ""
+  },
+  "source": {
+    "git": "https://github.com/gigya/iOS10Demo.git",
+    "tag": "3.6.7"
+  },
+  "frameworks": "GigyaSDK",
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "/Users/i347189/Documents/Xcode/GigyaObjC"
+  },
+  "vendored_frameworks": "GigyaSDK.framework",
+  "source_files": [
+    "Classes",
+    "Classes/**/*.{h,m}"
+  ],
+  "exclude_files": "Classes/Exclude",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}
